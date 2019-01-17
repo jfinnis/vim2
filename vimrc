@@ -196,7 +196,7 @@ nnoremap + <C-W>_           " max window
 nnoremap _ <C-W>=           " same size
 
 " location list popup ----------------------------------------------------- {{{2
-map <space>l :llist<cr>
+map <leader>L :llist<cr>
 
 " window resizing --------------------------------------------------------- {{{2
 nnoremap <silent> <C-W>< <C-W><:let g:LastWindowResize="in-horiz"<cr>
@@ -286,12 +286,11 @@ nnoremap <leader>] :CtrlPTag<cr> "TODO
 let delimitMate_expand_cr=1
 let delimitMate_expand_space=1
 
-" easymotion options and bindings (visual binding screws up snippets) ----- {{{2
-"let EasyMotion_do_mapping=0 TODO
-"nnoremap <silent> L      :call EasyMotion#F(0, 0)<cr>
-"nnoremap <silent> H      :call EasyMotion#F(0, 1)<cr>
-"xnoremap <silent> L :<C-U>call EasyMotion#F(1, 0)<cr>
-"xnoremap <silent> H :<C-U>call EasyMotion#F(1, 1)<cr>
+" easymotion -------------------------------------------------------------- {{{2
+map H <Plug>(easymotion-overwin-f)
+map L <Plug>(easymotion-bd-jk)
+let g:EasyMotion_prompt='>>> '
+let g:EasyMotion_verbose=0
 
 " fugitive git wrapping --------------------------------------------------- {{{2
 map <Leader>ga :Git add %<cr>
@@ -433,8 +432,8 @@ nnoremap <leader>PD :PlugDiff<cr>
 
 " vimux commands ---------------------------------------------------------- {{{2
 map ! :call VimuxPromptCommand()<cr>
-map <space>! :call VimuxRunLastCommand()<cr>
-map <space>@ :CloseVimTmuxPanes<cr>
+map <leader>! :call VimuxRunLastCommand()<cr>
+map <leader>@ :CloseVimTmuxPanes<cr>
 let g:VimuxUseNearest=0
 
 " COMMANDS """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""" {{{1

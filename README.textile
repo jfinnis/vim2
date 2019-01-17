@@ -1,16 +1,13 @@
 TODO
 tags - easytags - tagbar
 or - ale/language syntax server - :tags for skybison open map?
-colorscheme - yob?
-easymotion
-fix nerdtree weird formatting
+finish fugitive videos
 
 *General Settings*
 * zz/zt/zb for centering on line, to top, to bottom
-* ;< and ;> for indenting pasted text
 * g= indent whole file
 * ;W to remove all trailing whitespace
-* <space>l location list popup
+* ;L location list popup
 * ;X hexdumps file
 * zS to show syntax highlight group of word under cursor
 
@@ -26,22 +23,23 @@ fix nerdtree weird formatting
 * i_/a_ - underscore
 
 *Active Plugins*
-* Abolish            (:S major substitute, abbreviations, coercion: cr/c camel, m mixed, _ snake, u upper, - dash, . dot, <space> space, t title)
+* Abolish            (:S major substitute, abbreviations, coercion: cr/c camel, m mixed, _ snake, u upper, - dash, . dot, &lt;space&gt; space, t title)
 * Ack                (;a search repo, ;A search repo for word under cursor, ;K search help, output in quickfix)
 * Altr               (TODO)
-* Argumentative      ([/]a to traverse arguments, </>a to switch, text objects)
-* Ctrl-P             (;n for file list, ;] for ctrl-p tag, <C-D> to toggle filename/full path search, <C-F> toggle mru files, <C-R> to toggle regexp search, <C-Z> and <C-O> to select and open multiple, <C-V>/<C-CR> open vertical/horizontal split)
+* Argumentative      ([/]a to traverse arguments, &lt;/&gt;a to switch, text objects)
+* Ctrl-P             (;n for file list, ;] for ctrl-p tag, &lt;C-D&gt; to toggle filename/full path search, &lt;C-F&gt; toggle mru files, &lt;C-R&gt; to toggle regexp search, &lt;C-Z&gt; and &lt;C-O&gt; to select and open multiple, &lt;C-V&gt;/&lt;C-CR&gt; open vertical/horizontal split)
+* Easymotion         (H full screen search by char; L linewise search current buffer)
 * Exchange           (cx{motion} exchange motion with another (repeat), cxx current line, X visual, can use . to repeat)
 * Gitgutter          (signs for git changes, [c/]c for navigating between hunks, ;ca/;cu/;cp for git add/revert/preview)
 * Fugitive           (;g a add curfile, b blame, c commit -a, d diff, l log, m move, p push, r read (like checkout without writing), s status, w github; status commands: C-N/C-P next/prev file, CR edit, - stage, a alternative, ca commit --amend, cc commit, D diff, ds/v hor/vert diff, P patch, q quit, r reload, g| git checkout; blame: ACD resize, q close, o open commit, - reblame; ;gd in merge conflict file opens 3 way merge can dp from target/merge branch)
 * Jfmt               (;J to format json files)
 * NERDCommenter      (;c c comment, i invert, m multipart, s sexy, $ to end of line, A append, u uncomment, b block, y yank then comment)
-* NERDTree           (o expand dir/open file, O recurs. open dir, i/s open in horiz/vert split, gi/gs same but leave cursor in nerdtree, x close parent folder, P/p jump to root/parent, K/J top/bottom current level, <C-J/K> prev/next sibling, C set root to dir, r refresh, m modify files, I toggle hidden files, q close)
+* NERDTree           (o expand dir/open file, O recurs. open dir, i/s open in horiz/vert split, gi/gs same but leave cursor in nerdtree, x close parent folder, P/p jump to root/parent, K/J top/bottom current level, &lt;C-J/K&gt; prev/next sibling, C set root to dir, r refresh, m modify files, I toggle hidden files, q close)
 * Replace            (R replace operator)
-* Signature          (mx/dmx add delete mark; m,/. to use/toggle next available; m<space> remove all from buffer; ['/]' jump to next mark; m/ location list; m[0-9] repeated special marks; m<s-[0-9]> remove special; m? special mark location list; m<del> remove markers)
+* Signature          (mx/dmx add delete mark; m,/. to use/toggle next available; m&lt;space&gt; remove all from buffer; ['/]' jump to next mark; m/ location list; m[0-9] repeated special marks; m&lt;s-[0-9]&gt; remove special; m? special mark location list; m&lt;del&gt; remove markers)
 * Skybison           (command line autosuggestion, K buffer search)
-* Speeddating        (extends <C-A><C-X> to datetimes, d<C-A>/d<C-X> inserts current utc/local timestamp)
-* Surround           (ys text object symbol to surround with symbol, ds/cs to delete/change, yss current line, yS/ySS to indent text on new line with/without new symbol, S in visual wraps selection, yss<C-]> indents and surrounds with brackets)
+* Speeddating        (extends &lt;C-A&gt;&lt;C-X&gt; to datetimes, d&lt;C-A&gt;/d&lt;C-X&gt; inserts current utc/local timestamp)
+* Surround           (ys text object symbol to surround with symbol, ds/cs to delete/change, yss current line, yS/ySS to indent text on new line with/without new symbol, S in visual wraps selection, yss&lt;C-]&gt; indents and surrounds with brackets)
 * Switch             (- toggles segments of text)
 * Unimpaired         ([] mappings for prev/next: b buffer, l location list, q quickfix Q first/last, f file in directory, n merge conflict (d]n to delete), space blank lines, e exchange line; [o/]o/yo on/off/toggle options: b background, c cursorline, d diff, l list space/tab, s spell, u cursorcolumn; [/] x/u encoding/decoding xml/url)
 * Vim-Plug           (fast plugin manager, ;Pi/u/s/d PlugInstall/Update/Status/Diff)
