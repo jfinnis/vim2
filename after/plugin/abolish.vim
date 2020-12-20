@@ -18,3 +18,7 @@ Abolish thursday Thursday
 Abolish friday Friday
 Abolish saturday Saturday
 Abolish sunday Sunday
+Abolish resopnse response
+Abolish resposne response
+Abolish acknowledgement acknowledgment
+Abolish judgement judgment

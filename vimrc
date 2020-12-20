@@ -49,7 +49,6 @@ let mapleader=';'
 syntax on
 set nocompatible
 set noautochdir             " don't change directory to the file you opened
-set formatoptions=cqrl
 set hidden                  " liberal hidden buffers
 set history=100
 set mouse=a
@@ -63,6 +62,7 @@ set wildmode=longest,list   " tab completion settings
 " editing settings -------------------------------------------------------- {{{2
 set autoindent
 set backspace=indent,eol,start " backspace over everything in insert mode
+set formatoptions=qrlj
 set gdefault                " always do g option for substitute
 set linebreak
 set matchtime=3             " tenths of a second to show matching paren
@@ -80,9 +80,8 @@ set softtabstop=4           " 4 space tabs
 set tabstop=4
 
 " display settings -------------------------------------------------------- {{{2
-colorscheme ir_black
 set background=light
-highlight CursorLine term=none cterm=none ctermbg=0
+colorscheme ir_black
 highlight ColorColumn ctermbg=233
 set updatetime=100          " redraw screen faster
 set laststatus=2            " always display status line
@@ -118,6 +117,7 @@ map <leader>cd :cd %:h<cr>
 map <leader>V :e ~/.vim/vimrc <bar> :cd ~/.vim<cr>
 map <leader>T :e ~/.tmux/tmux.conf <bar> :cd ~/.tmux<cr>
 map <leader>Z :e ~/.zsh/zshrc <bar> :cd ~/.zsh<cr>
+map <leader>5 :echo @%<cr>
 
 " formatting mappings ----------------------------------------------------- {{{2
 " reindent whole file and return cursor position
@@ -178,6 +178,9 @@ imap <tab>y	<C-X><C-Y>
 " complete tags
 imap <tab>]	<C-X><C-]>
 
+" ctrl + hyphen inserts line of hyphens ----------------------------------- {{{2
+imap  <esc>yypv$r-o
+
 " add number object for modification (cin, etc) --------------------------- {{{2
 onoremap n :<c-u>call <SID>NumberTextObject(0)<cr>
 xnoremap n :<c-u>call <SID>NumberTextObject(0)<cr>
@@ -221,6 +224,7 @@ nnoremap n nzz
 nnoremap N Nzz
 nnoremap zc zczz
 nnoremap zo zozz
+nnoremap zn zR
 
 " ... and marks (thanks to bairui)
 :for m in map(map(range(10), 'nr2char(48+v:val)'), '"nnoremap ''".v:val." ''".v:val."zz"') | exe m | endfor
@@ -229,7 +233,7 @@ nnoremap zo zozz
 
 " PLUGIN SPECIFIC BINDINGS """""""""""""""""""""""""""""""""""""""""""""""" {{{1
 " Ack command/shortcut ---------------------------------------------------- {{{2
-let g:ackprg="ack -i -H --nocolor --nogroup --column --ignore-directory=vendor --ignore-directory=coverage --ignore-directory=dist --ignore-file=match:widget.html --ignore-file=match:debug.ejs --ignore-file=match:tags --ignore-directory=jest --ignore-directory=jest_0 --ignore-file=match:npm-debug.log --ignore-file=match:package-lock.json --ignore-file=match:debug.html --ignore-file=match:index.html --ignore-file=match:jasmine.css --ignore-file=match:jasmine-html.js --ignore-directory=bin --ignore-file=match:app.build.js --ignore-file=match:app.build.json --ignore-directory=bower_components --ignore-directory=.sass_cache --ignore-directory=.nyc_output --ignore-directory=.sass-cache --ignore-directory=libs --ignore-directory=lib --ignore-directory=.tags --ignore-directory=dist --ignore-file=match:app.css --ignore-file=match:_SpecRunner.html --ignore-directory=test-results"
+let g:ackprg="ack -i -H --nocolor --nogroup --column --ignore-directory=vendor --ignore-directory=coverage --ignore-file=match:widget.html --ignore-file=match:debug.ejs --ignore-file=match:tags --ignore-directory=jest --ignore-directory=jest_0 --ignore-file=match:npm-debug.log --ignore-file=match:package-lock.json --ignore-file=match:debug.html --ignore-file=match:index.html --ignore-file=match:jasmine.css --ignore-file=match:jasmine-html.js --ignore-directory=bin --ignore-file=match:app.build.js --ignore-file=match:app.build.json --ignore-directory=bower_components --ignore-directory=.sass_cache --ignore-directory=.nyc_output --ignore-directory=.sass-cache --ignore-directory=libs --ignore-directory=.tags --ignore-directory=dist --ignore-file=match:app.css --ignore-file=match:_SpecRunner.html --ignore-directory=test-results --ignore-directory=deprecated --ignore-directory=archived --ignore-directory=.tmp --ignore-directory=jaxb --ignore-directory=.pytest_cache --ignore-directory=.grunt"
 nnoremap <leader>a :Ack ""<left>
 nnoremap <leader>A :Ack <C-R><C-W><cr>
 nnoremap <leader>K :AckHelp 
@@ -339,7 +343,7 @@ syntax match jsOperator ">=" conceal cchar=≥
 syntax match jsOperator "<=" conceal cchar=≤
 hi! link jsOperator Operator
 
-setlocal conceallevel=1
+set conceallevel=1
 let g:javascript_conceal_function             = "λ"
 let g:javascript_conceal_null                 = "∅"
 let g:javascript_conceal_this                 = "の"
@@ -415,9 +419,15 @@ let g:skybison_fuzz=1                "substring match
 
 " switch bindings --------------------------------------------------------- {{{2
 nnoremap - :Switch<cr>
-"autocmd FileType html let b:switch_definitions = [
-"\   [ 'before', 'after' ]
-"\ ]
+let g:switch_custom_definitions = [
+\   [ '==', '!=' ],
+\   [ '===', '!==' ],
+\   [ 'disabled', 'enabled' ],
+\   [ 'Disabled', 'Enabled' ],
+\ ]
+autocmd FileType text let b:switch_custom_definitions = [
+\   [ '-', '+', '?' ]
+\ ]
 
 " Vim-Plug settings ------------------------------------------------------- {{{2
 nnoremap <leader>Pi :PlugInstall<cr>
