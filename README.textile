@@ -2,6 +2,7 @@ TODO
 tags - easytags - tagbar
 or - ale/language syntax server - :tags for skybison open map?
 finish fugitive videos
+easymotion
 
 *General Settings*
 * zz/zt/zb for centering on line, to top, to bottom
