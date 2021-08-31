@@ -59,6 +59,8 @@ finish fugitive videos
 * RelOps             (show relative line numbers for operator-pending mode only)
 * Rhubarb            (github support for git-browse)
 * Sleuth             (auto-detect indent width for tabs)
+* Typescript-Vim     (syntax highlighting for ts files)
+* Vim-Jsx-Typescript (syntax highlighting for tsx files)
 * Textobj-Entire     (entire file text object)
 * Textobj-Indent     (indent text object)
 * Textobj-Fold       (fold text object)

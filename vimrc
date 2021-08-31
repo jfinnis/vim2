@@ -20,6 +20,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'kana/vim-textobj-underscore'
   Plug 'kana/vim-textobj-user'
   Plug 'kshenoy/vim-signature'
+  Plug 'leafgarland/typescript-vim'
+  Plug 'peitalin/vim-jsx-typescript'
   Plug 'luochen1990/rainbow'
   Plug 'mileszs/ack.vim'
   Plug 'mxw/vim-jsx'
